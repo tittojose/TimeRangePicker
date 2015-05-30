@@ -1,4 +1,9 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: "com.jfrog.bintray"
+
+// This is the library version used when deploying the artifact
+version = "1.0.0"
 
 android {
     compileSdkVersion 21
@@ -22,3 +27,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.1'
 }
+
+apply from: '../maven.gradle'
+apply from: '../bintray.gradle'
