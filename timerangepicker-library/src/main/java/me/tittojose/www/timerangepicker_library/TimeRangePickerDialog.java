@@ -20,22 +20,29 @@ public class TimeRangePickerDialog extends DialogFragment implements View.OnClic
     TabHost tabs;
     Button setTimeRange;
     TimePicker startTimePicker, endTimePicker;
-    IOnTimeRangeSelected onTimeRangeSelectedListener;
+    OnTimeRangeSelectedListener onTimeRangeSelectedListener;
+    boolean is24HourMode;
 
-    public interface IOnTimeRangeSelected {
-        public void onTimeRangeSelected(int startHour, int startMin, int endHour, int endMin);
+    public static TimeRangePickerDialog newInstance(OnTimeRangeSelectedListener callback, boolean is24HourMode) {
+        TimeRangePickerDialog ret = new TimeRangePickerDialog();
+        ret.initialize(callback, is24HourMode);
+        return ret;
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            onTimeRangeSelectedListener = (IOnTimeRangeSelected) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement IOnTimeRangeSelected");
-        }
+    public void initialize(OnTimeRangeSelectedListener callback,
+                           boolean is24HourMode) {
+        onTimeRangeSelectedListener = callback;
+        this.is24HourMode = is24HourMode;
     }
+
+    public interface OnTimeRangeSelectedListener {
+        void onTimeRangeSelected(int startHour, int startMin, int endHour, int endMin);
+    }
+
+    public void setOnTimeRangeSetListener(OnTimeRangeSelectedListener callback) {
+        onTimeRangeSelectedListener = callback;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,6 +68,12 @@ public class TimeRangePickerDialog extends DialogFragment implements View.OnClic
 
 
         return root;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
     }
 
     @Override
