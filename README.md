@@ -6,6 +6,7 @@ TimeRangePicker is a library which can be used to select a time range.
 
 ### Description
 This library provides a dialog with two tabs, first one to select the start time and the other to select end time.
+
 ![alt tag](https://s3.amazonaws.com/tittojoseblog/Screenshot_2015-05-31-20-42-47.png)
 
 browse the [source code of the sample application](https://github.com/tittojose/TimeRangePicker/tree/master/app) for a example of use.
