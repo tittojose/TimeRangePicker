@@ -1,3 +1,5 @@
+[![Android Gems](http://www.android-gems.com/badge/tittojose/TimeRangePicker.svg?branch=master)](http://www.android-gems.com/lib/tittojose/TimeRangePicker)
+
 # TimeRangePicker
 TimeRangePicker is a library which can be used to select a time range.
 
