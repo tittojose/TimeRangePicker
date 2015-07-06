@@ -18,7 +18,7 @@ Last version is 0.2
 
 Just add the following statement in your build.gradle
 
-```
+```groovy
 compile 'com.github.tittojose:timerangepicker-library:VERSION
 ```
 
